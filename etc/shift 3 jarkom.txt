@@ -1,0 +1,143 @@
+nano /root/bash.sh
+nano /root/.bashrc
+bash /root/bash.sh 
+
+echo "
+auto eth0
+iface eth0 inet static
+	address 192.198.1.2
+	netmask 255.255.255.0
+	gateway 192.198.1.1
+" > /etc/network/interfaces
+
+ostania
+#!/bin/bash
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.198.0.0/16
+apt-get update
+apt-get install isc-dhcp-relay -y
+echo "
+SERVERS=\"192.200.2.4\"
+INTERFACES=\"eth1 eth2 eth3\"
+OPTIONS=\"\"
+" > /etc/default/isc-dhcp-relay
+service isc-dhcp-relay start
+
+
+wise
+#!/bin/bash
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+apt-get update
+apt-get install bind9 -y
+echo "
+options {
+directory \"/var/cache/bind\";
+forwarders {
+192.168.122.1;
+};
+//dnssec-validation auto;
+allow-query{ any; };
+};
+" > /etc/bind/named.conf.options
+service bind9 restart
+service bind9 status
+
+
+westalis
+#!/bin/bash
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+apt-get update
+apt-get install isc-dhcp-server -y
+dhcpd --version
+echo "
+INTERFACES=\"eth0\"
+" > /etc/default/isc-dhcp-servery
+echo "
+subnet 192.198.1.0 netmask 255.255.255.0 {
+    range 192.198.1.50 192.198.1.88;
+    range 192.198.1.120 192.198.1.155;
+    option routers 192.198.1.1;
+    option broadcast-address 192.198.1.255;
+    option domain-name-servers 192.198.2.2;
+    default-lease-time 300;
+    max-lease-time 6900;
+}
+subnet 192.198.2.0 netmask 255.255.255.0 {    
+    option routers 192.198.2.1;
+}
+subnet 192.198.3.0 netmask 255.255.255.0 {
+    range 192.198.3.10 192.198.3.30;
+    range 192.198.3.60 192.198.3.85;
+    option routers 192.198.3.1;
+    option broadcast-address 192.198.3.255;
+    option domain-name-servers 192.198.2.2;
+    default-lease-time 600;
+    max-lease-time 6900;
+}
+host Eden {
+    hardware ethernet 16:ca:f3:e7:ea:ee;
+    fixed-address 192.198.3.13;
+}
+" > /etc/dhcp/dhcpd.conf
+service isc-dhcp-server stop
+service isc-dhcp-server start
+service isc-dhcp-server restart
+service isc-dhcp-server status
+
+
+berlint
+#!/bin/bash
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+apt-get update
+apt-get install squid -y
+service squid start
+service squid status
+mv /etc/squid/squid.conf /etc/squid/squid.conf.bak
+echo "
+http_port 8080
+visible_hostname Berlint
+http_access allow all
+" > /etc/squid/squid.conf
+service squid restart
+service squid status
+
+SSS 
+#!/bin/bash
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+apt-get update
+apt-get install squid -y
+apt-get install lynx -y
+export http_proxy="http://192.198.2.3:8080"
+env | grep -i proxy
+echo "
+auto eth0
+iface eth0 inet dhcp
+" > /etc/network/interfaces
+
+
+Garden
+#!/bin/bash
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+apt-get update
+apt-get install squid -y
+apt-get install lynx -y
+export http_proxy="http://192.198.2.3:8080"
+env | grep -i proxy
+echo "
+auto eth0
+iface eth0 inet dhcp
+" > /etc/network/interfaces
+
+
+Eden
+#!/bin/bash
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+apt-get update
+apt-get install squid -y
+apt-get install lynx -y
+export http_proxy="http://192.198.2.3:8080"
+env | grep -i proxy
+echo "
+auto eth0
+iface eth0 inet dhcp
+hardware ethernet 16:ca:f3:e7:ea:ee
+" > /etc/network/interfaces
