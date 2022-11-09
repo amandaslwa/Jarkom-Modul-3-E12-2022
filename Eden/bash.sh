@@ -15,5 +15,5 @@ env | grep -i proxy
 echo "
 auto eth0
 iface eth0 inet dhcp
-hardware ethernet 16:ca:f3:e7:ea:ee
+hwaddress ether 16:ca:f3:e7:ea:ee
 " > /etc/network/interfaces
