@@ -95,7 +95,22 @@ mv /etc/squid/squid.conf /etc/squid/squid.conf.bak
 echo "
 http_port 8080
 visible_hostname Berlint
+http_access deny AVAILABLE_WORKING
 http_access allow all
+" > /etc/squid/squid.conf
+service squid restart
+service squid status
+apt-get install apache2-utils -y
+echo "
+acl AVAILABLE_WORKING time MTWHF 08:00-17:00
+" > /etc/squid/acl.conf
+echo "
+include /etc/squid/acl.conf
+
+http_port 8080
+http_access deny AVAILABLE_WORKING
+http_access allow all
+visible_hostname Berlint
 " > /etc/squid/squid.conf
 service squid restart
 service squid status
@@ -106,12 +121,12 @@ echo nameserver 192.168.122.1 > /etc/resolv.conf
 apt-get update
 apt-get install squid -y
 apt-get install lynx -y
-export http_proxy="http://192.198.2.3:8080"
-env | grep -i proxy
 echo "
 auto eth0
 iface eth0 inet dhcp
 " > /etc/network/interfaces
+export http_proxy="http://192.198.2.3:8080"
+env | grep -i proxy
 
 
 Garden
@@ -120,12 +135,12 @@ echo nameserver 192.168.122.1 > /etc/resolv.conf
 apt-get update
 apt-get install squid -y
 apt-get install lynx -y
-export http_proxy="http://192.198.2.3:8080"
-env | grep -i proxy
 echo "
 auto eth0
 iface eth0 inet dhcp
 " > /etc/network/interfaces
+export http_proxy="http://192.198.2.3:8080"
+env | grep -i proxy
 
 
 Eden
@@ -134,10 +149,10 @@ echo nameserver 192.168.122.1 > /etc/resolv.conf
 apt-get update
 apt-get install squid -y
 apt-get install lynx -y
-export http_proxy="http://192.198.2.3:8080"
-env | grep -i proxy
 echo "
 auto eth0
 iface eth0 inet dhcp
 hwaddress ether 16:ca:f3:e7:ea:ee
 " > /etc/network/interfaces
+export http_proxy="http://192.198.2.3:8080"
+env | grep -i proxy
