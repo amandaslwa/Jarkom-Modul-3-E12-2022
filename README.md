@@ -174,7 +174,7 @@ apt-get update
 apt-get install isc-dhcp-relay -y
 ```
 
-Mengonfigurasi dhcp relay 
+Mengonfigurasi DHCP relay 
 ```sh
 echo "
 SERVERS=\"192.198.2.4\"
@@ -183,25 +183,88 @@ OPTIONS=\"\"
 " > /etc/default/isc-dhcp-relay
 ```
 
-Memulai dhcp relay
+Memulai DHCP relay
 ```
 service isc-dhcp-relay start
 ```
 
 ### Soal 3
+```
+Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server.
+Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.50 - [prefix IP].1.88 dan [prefix IP].1.120 - [prefix IP].1.155 (3)
+```
 ### Penjelasan
+**Mengonfigurasi range IP pada konfigurasi DHCP**
+Pengaturan `range` terdapat pada konfigurasi DHCP di Westalis untuk client yang melewati Switch1 (subnet 192.198.1.0)
+```
+subnet 192.198.1.0 netmask 255.255.255.0 {
+    range 192.198.1.50 192.198.1.88;
+    range 192.198.1.120 192.198.1.155;
+    option routers 192.198.1.1;
+    option broadcast-address 192.198.1.255;
+    option domain-name-servers 192.198.2.2;
+    default-lease-time 300;
+    max-lease-time 6900;
+}
+```
 
 ### Soal 4
+```
+Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.10 - [prefix IP].3.30 dan [prefix IP].3.60 - [prefix IP].3.85 (4)
+```
 ### Penjelasan
+**Mengonfigurasi range IP pada konfigurasi DHCP**
+Pengaturan `range` terdapat pada konfigurasi DHCP di Westalis untuk client yang melewati Switch3 (subnet 192.198.3.0)
+```
+subnet 192.198.3.0 netmask 255.255.255.0 {
+    range 192.198.3.10 192.198.3.30;
+    range 192.198.3.60 192.198.3.85;
+    option routers 192.198.3.1;
+    option broadcast-address 192.198.3.255;
+    option domain-name-servers 192.198.2.2;
+    default-lease-time 600;
+    max-lease-time 6900;
+}
+```
 
 ### Soal 5
+```
+Client mendapatkan DNS dari WISE dan client dapat terhubung dengan internet melalui DNS tersebut. (5)
+```
 ### Penjelasan
+Pada konfigurasi DHCP di Westalis, pada masing-masing konfigurasi subnet ditambahkan line `option domain-name-servers 192.198.2.2;`
 
 ### Soal 6
+```
+Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 5 menit sedangkan pada client yang melalui Switch3 selama 10 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 115 menit. (6)
+```
 ### Penjelasan
+**Mengonfigurasi lama waktu pada konfigurasi DHCP**
+Pengaturan `time` terdapat pada konfigurasi DHCP di Westalis
+- Untuk client yang melewati Switch1
+```
+    default-lease-time 300;
+    max-lease-time 6900;
+```
+- Untuk client yang melewati Switch3
+```
+    default-lease-time 600;
+    max-lease-time 6900;
+```
 
 ### Soal 7
+```
+Loid dan Franky berencana menjadikan Eden sebagai server untuk pertukaran informasi dengan alamat IP yang tetap dengan IP [prefix IP].3.13 (7)
+```
 ### Penjelasan
+**Mengonfigurasi fixed address**
+Pengaturan fixed address terdapat pada konfigurasi DHCP di Westalis
+```
+host Eden {
+    hardware ethernet 16:ca:f3:e7:ea:ee;
+    fixed-address 192.198.3.13;
+}
+```
 
 ### Soal 8
 ### Penjelasan
