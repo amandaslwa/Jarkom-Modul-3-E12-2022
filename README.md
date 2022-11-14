@@ -267,7 +267,44 @@ host Eden {
 ```
 
 ### Soal 8
+```
+SSS, Garden, dan Eden digunakan sebagai client Proxy agar pertukaran informasi dapat terjamin keamanannya, juga untuk mencegah kebocoran data.
+```
 ### Penjelasan
+**Menginstall Squid dan Lynx**
+Pada ketiga client, dilakukan instalasi Squid dan Lynx
+```sh
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+apt-get update
+apt-get install squid -y
+apt-get install lynx -y
+```
+
+**Mengonfigurasi jaringan**
+- Pada SSS dan Garden
+Konfigurasi jaringan diubah dari yang awalnya static menjadi DHCP
+```sh
+echo "
+auto eth0
+iface eth0 inet dhcp
+" > /etc/network/interfaces
+```
+- Pada Eden yang memiliki fixed address
+Konfigurasi jaringan menjadi DHCP serta hwaddress
+```sh
+echo "
+auto eth0
+iface eth0 inet dhcp
+hwaddress ether 16:ca:f3:e7:ea:ee
+" > /etc/network/interfaces
+```
+
+**Mengexport proxy**
+Dilakukan export proxy pada masing-masing client, dengan menggunakan IP Berlint dan port 8080
+```
+export http_proxy="http://192.198.2.3:8080"
+env | grep -i proxy
+```
 
 ### Soal 9
 ### Penjelasan
