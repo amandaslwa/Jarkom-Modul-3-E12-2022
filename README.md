@@ -351,27 +351,71 @@ visible_hostname Berlint
 
 ## Testing
 **Ostania**
+
 <img width="358" alt="image" src="https://user-images.githubusercontent.com/90702710/201654931-cb6d2cef-29d6-4597-957e-f901a0b5b57d.png">
 
 **WISE**
+
 <img width="405" alt="image" src="https://user-images.githubusercontent.com/90702710/201654782-85c85227-b792-49a5-9976-b87c873eb9fd.png">
 
 **Berlint**
+
 <img width="752" alt="image" src="https://user-images.githubusercontent.com/90702710/201655131-5837e240-cbe3-41f1-8dfe-fe27b9ab224c.png">
 
 **SSS**
+
 - Proxy dan IP 
+
 <img width="536" alt="image" src="https://user-images.githubusercontent.com/90702710/201655453-e62e1f35-c757-4074-825b-c4202088c426.png">
+
 - Ping google.com mengarah ke IP google
+
 <img width="431" alt="image" src="https://user-images.githubusercontent.com/90702710/201656085-5a74df1a-8456-443c-8b20-63476576929a.png">
+
 - Akses http pada hari dan waktu yang ditentukan
+
+<img width="179" alt="image" src="https://user-images.githubusercontent.com/90702710/201657902-0e90b5ac-dc0f-4636-94ff-83146a92faf5.png">
+
 <img width="960" alt="forbidden" src="https://user-images.githubusercontent.com/90702710/201657542-b5e30658-d622-4942-99cf-e1d0dc9e3624.png">
 
 <img width="960" alt="denied" src="https://user-images.githubusercontent.com/90702710/201657563-0736428a-70c0-4c7c-b257-81ad3b47176f.png">
 
 **Garden**
+
 - Proxy dan IP
+
+<img width="557" alt="image" src="https://user-images.githubusercontent.com/90702710/201658073-efb8782c-f894-4438-9a00-c6853a0b0d9b.png">
 
 - Ping google.com mengarah ke IP google
 
+<img width="428" alt="ip google garden" src="https://user-images.githubusercontent.com/90702710/201658296-b56c9974-1d41-4c37-a50a-e2065891a06f.png">
+
 - Akses http pada hari dan waktu yang ditentukan
+
+<img width="215" alt="date garden" src="https://user-images.githubusercontent.com/90702710/201658347-15cd03ec-ad0a-4f50-b70b-e926ed1cb015.png">
+
+<img width="960" alt="forbidden" src="https://user-images.githubusercontent.com/90702710/201658385-bbede78c-6b1d-475f-b236-37f4c1ce6f0a.png">
+
+<img width="960" alt="denied" src="https://user-images.githubusercontent.com/90702710/201658406-f4447c7d-50c9-4f6f-bc6e-ef454bea799e.png">
+
+**Eden**
+
+- Proxy dan IP
+
+<img width="577" alt="proxy ip eden" src="https://user-images.githubusercontent.com/90702710/201658971-54538b68-10e8-4523-a8c1-77aa5ff7a25e.png">
+
+- Ping google.com mengarah ke IP google
+
+<img width="462" alt="ip google eden" src="https://user-images.githubusercontent.com/90702710/201659012-1135cb2c-8814-4a47-ac73-c934ccdd0285.png">
+
+- Akses http pada hari dan waktu yang ditentukan
+
+<img width="233" alt="date eden" src="https://user-images.githubusercontent.com/90702710/201659073-23901b91-e3b9-4172-a7da-d6f628527e4a.png">
+
+<img width="960" alt="forbidden" src="https://user-images.githubusercontent.com/90702710/201659090-0b826b79-b0d0-436d-945a-b4c45b2a2b91.png">
+
+<img width="960" alt="denied" src="https://user-images.githubusercontent.com/90702710/201659103-eec6e461-684c-4975-b9ae-cce9ef2c45ca.png">
+
+## Kendala
+
+- Pengerjaan hanya sampai Proxy nomor 1
