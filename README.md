@@ -6,8 +6,8 @@ Kelas Jaringan Komputer E - Kelompok E12
 - Michael Ariel Manihuruk       (5025201158)
 - Azzura Mahendra Putra Malinus (5025201211)
 
-### Topologi
-<img width="586" alt="image" src="https://user-images.githubusercontent.com/90702710/201578464-9fe1af61-8598-4a2c-9914-aefeac693cd9.png">
+## Topologi
+<img width="494" alt="image" src="https://user-images.githubusercontent.com/90702710/201654427-9c64b9af-06e9-46c3-b3c4-290db66b464a.png">
 
 ### Soal 1
 ```
@@ -349,7 +349,29 @@ visible_hostname Berlint
 " > /etc/squid/squid.conf
 ```
 
-### Soal 10
-### Penjelasan
+## Testing
+**Ostania**
+<img width="358" alt="image" src="https://user-images.githubusercontent.com/90702710/201654931-cb6d2cef-29d6-4597-957e-f901a0b5b57d.png">
 
-## Kendala
+**WISE**
+<img width="405" alt="image" src="https://user-images.githubusercontent.com/90702710/201654782-85c85227-b792-49a5-9976-b87c873eb9fd.png">
+
+**Berlint**
+<img width="752" alt="image" src="https://user-images.githubusercontent.com/90702710/201655131-5837e240-cbe3-41f1-8dfe-fe27b9ab224c.png">
+
+**SSS**
+- Proxy dan IP 
+<img width="536" alt="image" src="https://user-images.githubusercontent.com/90702710/201655453-e62e1f35-c757-4074-825b-c4202088c426.png">
+- Ping google.com mengarah ke IP google
+<img width="431" alt="image" src="https://user-images.githubusercontent.com/90702710/201656085-5a74df1a-8456-443c-8b20-63476576929a.png">
+- Akses http pada hari dan waktu yang ditentukan
+<img width="960" alt="forbidden" src="https://user-images.githubusercontent.com/90702710/201657542-b5e30658-d622-4942-99cf-e1d0dc9e3624.png">
+
+<img width="960" alt="denied" src="https://user-images.githubusercontent.com/90702710/201657563-0736428a-70c0-4c7c-b257-81ad3b47176f.png">
+
+**Garden**
+- Proxy dan IP
+
+- Ping google.com mengarah ke IP google
+
+- Akses http pada hari dan waktu yang ditentukan
