@@ -161,7 +161,32 @@ env | grep -i proxy
 ```
 
 ### Soal 2
+```
+Ostania sebagai DHCP Relay (2)
+```
 ### Penjelasan
+
+**Menyiapkan DHCP Relay di Ostania**
+
+Menginstall isc-dhcp-relay pada Ostania
+```sh
+apt-get update
+apt-get install isc-dhcp-relay -y
+```
+
+Mengonfigurasi dhcp relay 
+```sh
+echo "
+SERVERS=\"192.198.2.4\"
+INTERFACES=\"eth1 eth2 eth3\"
+OPTIONS=\"\"
+" > /etc/default/isc-dhcp-relay
+```
+
+Memulai dhcp relay
+```
+service isc-dhcp-relay start
+```
 
 ### Soal 3
 ### Penjelasan
