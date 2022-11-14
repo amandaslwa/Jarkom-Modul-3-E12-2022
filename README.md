@@ -195,6 +195,7 @@ Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.50 - [prefix
 ```
 ### Penjelasan
 **Mengonfigurasi range IP pada konfigurasi DHCP**
+
 Pengaturan `range` terdapat pada konfigurasi DHCP di Westalis untuk client yang melewati Switch1 (subnet 192.198.1.0)
 ```
 subnet 192.198.1.0 netmask 255.255.255.0 {
@@ -214,6 +215,7 @@ Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.10 - [prefix
 ```
 ### Penjelasan
 **Mengonfigurasi range IP pada konfigurasi DHCP**
+
 Pengaturan `range` terdapat pada konfigurasi DHCP di Westalis untuk client yang melewati Switch3 (subnet 192.198.3.0)
 ```
 subnet 192.198.3.0 netmask 255.255.255.0 {
@@ -240,6 +242,7 @@ Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 
 ```
 ### Penjelasan
 **Mengonfigurasi lama waktu pada konfigurasi DHCP**
+
 Pengaturan `time` terdapat pada konfigurasi DHCP di Westalis
 - Untuk client yang melewati Switch1
 ```
@@ -258,6 +261,7 @@ Loid dan Franky berencana menjadikan Eden sebagai server untuk pertukaran inform
 ```
 ### Penjelasan
 **Mengonfigurasi fixed address**
+
 Pengaturan fixed address terdapat pada konfigurasi DHCP di Westalis
 ```
 host Eden {
@@ -272,6 +276,7 @@ SSS, Garden, dan Eden digunakan sebagai client Proxy agar pertukaran informasi d
 ```
 ### Penjelasan
 **Menginstall Squid dan Lynx**
+
 Pada ketiga client, dilakukan instalasi Squid dan Lynx
 ```sh
 echo nameserver 192.168.122.1 > /etc/resolv.conf
@@ -300,6 +305,7 @@ hwaddress ether 16:ca:f3:e7:ea:ee
 ```
 
 **Mengexport proxy**
+
 Dilakukan export proxy pada masing-masing client, dengan menggunakan IP Berlint dan port 8080
 ```
 export http_proxy="http://192.198.2.3:8080"
