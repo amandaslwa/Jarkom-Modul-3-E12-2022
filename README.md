@@ -6,6 +6,9 @@ Kelas Jaringan Komputer E - Kelompok E12
 - Michael Ariel Manihuruk       (5025201158)
 - Azzura Mahendra Putra Malinus (5025201211)
 
+### Topologi
+<img width="586" alt="image" src="https://user-images.githubusercontent.com/90702710/201578464-9fe1af61-8598-4a2c-9914-aefeac693cd9.png">
+
 ### Soal 1
 ```
 Loid bersama Franky berencana membuat peta tersebut dengan kriteria WISE sebagai DNS Server, Westalis sebagai DHCP Server, Berlint sebagai Proxy Server (1)
