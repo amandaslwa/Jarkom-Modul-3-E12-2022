@@ -9,6 +9,8 @@ Kelas Jaringan Komputer E - Kelompok E12
 ## Topologi
 <img width="494" alt="image" src="https://user-images.githubusercontent.com/90702710/201654427-9c64b9af-06e9-46c3-b3c4-290db66b464a.png">
 
+## Soal Shift 3
+
 ### Soal 1
 ```
 Loid bersama Franky berencana membuat peta tersebut dengan kriteria WISE sebagai DNS Server, Westalis sebagai DHCP Server, Berlint sebagai Proxy Server (1)
