@@ -306,14 +306,44 @@ hwaddress ether 16:ca:f3:e7:ea:ee
 
 **Mengexport proxy**
 
-Dilakukan export proxy pada masing-masing client, dengan menggunakan IP Berlint dan port 8080
+Dilakukan export proxy pada masing-masing client, dengan menggunakan IP Berlint dan port 8080 dan mengecek apakah proxy sudah terexport
 ```
 export http_proxy="http://192.198.2.3:8080"
 env | grep -i proxy
 ```
 
 ### Soal 9
+```
+Client hanya dapat mengakses internet diluar (selain) hari & jam kerja (senin-jumat 08.00 - 17.00) dan hari libur (dapat mengakses 24 jam penuh)
+```
 ### Penjelasan
+**Menginstall apache2-utils di Berlint**
+
+Instalasi ini dilakukan agar nantinya pengaturan akses internet dapat dilakukan melalui konfigurasi acl
+```
+apt-get install apache2-utils -y
+```
+**Konfigurasi acl di Berlint**
+
+- Konfigurasi hari dan waktu 
+Konfigurasi atribut `AVAILABLE_WORKING` dengan hari Senin-Jum'at pukul 08:00-17:00. Untuk hari libur dan weekend tidak dikonfigurasi karena internet dapat diakses selama 24 jam
+```sh
+echo "
+acl AVAILABLE_WORKING time MTWHF 08:00-17:00
+" > /etc/squid/acl.conf
+```
+- Pengecualian
+Karena soal meminta kita untuk melakukan konfigurasi internet diluar (selain) hari dan waktu yang ditetapkan pada atribut `AVAILABLE_WORKING`, maka perintah menggunakan `deny`
+```sh
+echo "
+include /etc/squid/acl.conf
+
+http_port 8080
+http_access deny AVAILABLE_WORKING
+http_access allow all
+visible_hostname Berlint
+" > /etc/squid/squid.conf
+```
 
 ### Soal 10
 ### Penjelasan
