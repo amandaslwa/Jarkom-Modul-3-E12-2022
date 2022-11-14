@@ -287,6 +287,7 @@ apt-get install lynx -y
 
 **Mengonfigurasi jaringan**
 - Pada SSS dan Garden
+
 Konfigurasi jaringan diubah dari yang awalnya static menjadi DHCP
 ```sh
 echo "
@@ -295,6 +296,7 @@ iface eth0 inet dhcp
 " > /etc/network/interfaces
 ```
 - Pada Eden yang memiliki fixed address
+
 Konfigurasi jaringan menjadi DHCP serta hwaddress
 ```sh
 echo "
@@ -326,6 +328,7 @@ apt-get install apache2-utils -y
 **Konfigurasi acl di Berlint**
 
 - Konfigurasi hari dan waktu 
+
 Konfigurasi atribut `AVAILABLE_WORKING` dengan hari Senin-Jum'at pukul 08:00-17:00. Untuk hari libur dan weekend tidak dikonfigurasi karena internet dapat diakses selama 24 jam
 ```sh
 echo "
@@ -333,6 +336,7 @@ acl AVAILABLE_WORKING time MTWHF 08:00-17:00
 " > /etc/squid/acl.conf
 ```
 - Pengecualian
+
 Karena soal meminta kita untuk melakukan konfigurasi internet diluar (selain) hari dan waktu yang ditetapkan pada atribut `AVAILABLE_WORKING`, maka perintah menggunakan `deny`
 ```sh
 echo "
